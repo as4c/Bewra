@@ -1,0 +1,12 @@
+*env
+*.env
+
+*.sqlite3
+
+*node_modules
+*.bin
+*db.sqlite3
+db.sqlite3
+*.vscode
+vscode
+*media
