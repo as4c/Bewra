@@ -65,8 +65,8 @@ const Categories = () => {
         setIsOpen(!isOpen);
     };
     return (
-        <div ref={dropdownRef} className="bg-slate-700 p-3 overflow-hidden shadow-lg z-20">
-            <div className="container mx-auto flex items-center justify-around">
+        <div ref={dropdownRef} className="bg-slate-700 p-3 overflow-hidden shadow-lg">
+            <div className="container mx-auto flex items-center justify-between mt-10">
                 <button
                     className="text-white font-bold text-xl cursor-pointer"
                     id="dropdown-button"
