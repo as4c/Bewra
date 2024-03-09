@@ -42,7 +42,7 @@ const SellerDashboard = () => {
                         {/* <!-- Left Side --> */}
                         {user.is_vendor ?
                             <div class="w-full md:w-3/12 md:mx-2">
-                                <div class="bg-gray-200 p-3 hover:shadow hidden md:inline">
+                                <div class="bg-gray-200 p-3 hover:shadow justify-center md:inline">
                                     <div className="grid grid-cols-1 ">
                                         <ul>
                                             <li className="mb-1">
@@ -100,7 +100,7 @@ const SellerDashboard = () => {
                                         <div class=" grid grid-cols-2 mr-2">
                                             <div class="px-4 py-2 font-semibold">Owner Email.</div>
                                             <div class="px-2 py-2">
-                                                <a class="text-blue-800 mr-2" href={`mailto:${sellers.owner.email}`}>{sellers.owner.email}</a>
+                                                <a class="text-blue-800 mr-2 flex wrap" href={`mailto:${sellers.owner.email}`}>{sellers.owner.email}</a>
 
                                             </div>
                                         </div>
@@ -200,7 +200,7 @@ const SellerDashboard = () => {
                                     <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold">Total Earning</div>
                                         <div class="px-4 py-2">{sellers.total_payment}</div>
-                              https://barfecto.com/product-category/jimmyscocktails/      </div>
+                                  </div>
                                 </div>
                             </div>
                         </div>

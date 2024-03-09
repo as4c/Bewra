@@ -114,7 +114,7 @@ const Navbar = () => {
             }
         };
 
-    }, [isDropdownOpen]);
+    }, [toggleDropdown]);
 
     useEffect(() => {
         const handleDocumentClick = (e) => {
