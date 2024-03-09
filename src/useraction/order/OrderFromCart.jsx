@@ -1,10 +1,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import Layout from '../../homepage/Layout';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { loadProductData } from '../../features/actions/productActions';
-import { BaseUrl } from '../../backend';
+import { Link, useNavigate} from 'react-router-dom';
 import { loadAddress } from '../../features/actions/addressAction';
 import { buyAll } from '../../features/actions/orderActions';
 import { unwrapResult } from '@reduxjs/toolkit';
@@ -13,21 +10,19 @@ import useRazorpay from "react-razorpay";
 import Swal from 'sweetalert2';
 import { Watch } from 'react-loader-spinner'
 import { mapAddressCodeToLabel } from '../../helper';
+import Loading from '../../helper/Loading';
 
 
 const OrderFromCart = () => {
     const [Razorpay] = useRazorpay();
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [add, setAdd] = useState(0);
-    const [remove, setRemove] = useState(0);
+    // const [add, setAdd] = useState(0);
+    // const [remove, setRemove] = useState(0);
     const [addressdata, setAddress] = useState("");
     const [paymentMode, setPaymentMode] = useState("");
 
-    const { pathname } = useLocation();
-    const { uid } = useParams();
-
-    const { isAuthenticated, redirect, user } = useSelector((state) => state.auth);
+    const { isAuthenticated, user } = useSelector((state) => state.auth);
     const { address } = useSelector((state) => state.address);
 
     useEffect(() => {
@@ -73,15 +68,13 @@ const OrderFromCart = () => {
         if (paymentMode === "") {
             alert("Select Payment Mode.")
         }
-        console.log("submit clicked!")
-        console.log("address...", addressdata);
-        console.log("payment mode... ", paymentMode);
+        
         const res1 = await dispatch(buyAll({
             address: addressdata,
             payment_mode: paymentMode
         }));
         const res = await unwrapResult(res1);
-        console.log("order res..", res);
+        
         if (!res.errors) {
             if (paymentMode === 'ONL') {
 
@@ -99,7 +92,7 @@ const OrderFromCart = () => {
                         key: process.env.REACT_APP_RAZORPAY_PUBLIC_KEY,
                         name: "Bewra.com Pvt.Ltd",
                         description: "Test Transaction",
-                        image: "https://example.com/your_logo",
+                        image: "https://res.cloudinary.com/deyj67ued/image/upload/v1709895525/Bewra/media/assets/bewra-high-resolution-logo-black-transparent_nngrys.png",
                         order_id: order_id,
                         handler: function async(response) {
                             dispatch(CompletePaymentForAll({
@@ -166,20 +159,9 @@ const OrderFromCart = () => {
 
     }
 
-    if (loading) {
+    if (loading || payment_loading) {
         return (
-            <div className="flex items-center justify-center h-screen">
-                <Watch
-                    visible={true}
-                    height="80"
-                    width="80"
-                    radius="48"
-                    color="#4fa94d"
-                    ariaLabel="watch-loading"
-                    wrapperStyle={{}}
-                    wrapperClass=""
-                />
-            </div>
+           <Loading />
         )
     }
     return (

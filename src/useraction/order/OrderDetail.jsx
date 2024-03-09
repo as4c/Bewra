@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { BaseUrl } from '../../backend'
 import { useParams } from 'react-router-dom'
 import { cancelOrReturnOrder, loadOrderData } from '../../features/actions/orderActions'
-import { Watch } from 'react-loader-spinner';
 import { Link } from 'react-router-dom';
 import {
     mapAddressCodeToLabel,
@@ -58,7 +57,7 @@ const OrderDetail = () => {
                             <div className='flex flex-col justify-between my-3'>
                                 <div className="flex flex-row mx-auto">
                                     <Link to={`/product/${product.uid}`}>
-                                        <img className='w-40 h-auto block mb-3' src={`${BaseUrl}/${product.image}`} alt='product' />
+                                        <img className='w-40 h-auto block mb-3' src={`${product.image}`} alt='product' />
                                     </Link>
                                 </div>
                             </div>

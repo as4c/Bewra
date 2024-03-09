@@ -10,7 +10,7 @@ import { unwrapResult } from '@reduxjs/toolkit';
 import { CompletePayment, InitiatePayment } from '../../features/actions/paymentAction';
 import useRazorpay from "react-razorpay";
 import Swal from 'sweetalert2';
-import { Watch } from 'react-loader-spinner'
+import Loading from '../../helper/Loading';
 
 const OrderSummary = () => {
 
@@ -93,36 +93,14 @@ const OrderSummary = () => {
 
     if (product.length === 0 || loading) {
         return (
-            <div className='min-h-screen'>
-                <Watch
-                    visible={true}
-                    height="80"
-                    width="80"
-                    radius="48"
-                    color="#4fa94d"
-                    ariaLabel="watch-loading"
-                    wrapperStyle={{}}
-                    wrapperClass=""
-                />
-            </div>
+           <Loading />
         )
     }
 
     const onSubmit = async () => {
         if (payment_loading) {
             return (
-                <div className="flex items-center justify-center h-screen">
-                    <Watch
-                        visible={true}
-                        height="80"
-                        width="80"
-                        radius="48"
-                        color="#4fa94d"
-                        ariaLabel="watch-loading"
-                        wrapperStyle={{}}
-                        wrapperClass=""
-                    />
-                </div>
+               <Loading />
             )
         }
         if (addressdata === "") {
@@ -157,7 +135,7 @@ const OrderSummary = () => {
                         key: process.env.REACT_APP_RAZORPAY_PUBLIC_KEY,
                         name: "Bewra.com Pvt.Ltd",
                         description: "Test Transaction",
-                        image: "https://example.com/your_logo",
+                        image: "https://res.cloudinary.com/deyj67ued/image/upload/v1709895525/Bewra/media/assets/bewra-high-resolution-logo-black-transparent_nngrys.png",
                         order_id: order_id,
                         handler: function async(response) {
                             dispatch(CompletePayment({
