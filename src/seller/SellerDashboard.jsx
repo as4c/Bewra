@@ -95,12 +95,12 @@ const SellerDashboard = () => {
                                         </div>
                                         <div class="grid grid-cols-2">
                                             <div class="px-4 py-2 font-semibold">Owner Name</div>
-                                            <div class="px-4 py-2">{sellers.owner.first_name}  {sellers.owner.last_name}</div>
+                                            <div class="px-4 py-2">{user.first_name}  {user.last_name}</div>
                                         </div>
                                         <div class=" grid grid-cols-2 mr-2">
                                             <div class="px-4 py-2 font-semibold">Owner Email.</div>
                                             <div class="px-2 py-2">
-                                                <a class="text-blue-800 mr-2" href={`mailto:${sellers.owner.email}`}>{sellers.owner.email}</a>
+                                                <a class="text-blue-800 mr-2" href={`mailto:${user.email}`}>{user.email}</a>
 
                                             </div>
                                         </div>
@@ -189,10 +189,10 @@ const SellerDashboard = () => {
                                         <div class="px-4 py-2 font-semibold">Total product</div>
                                         <div class="px-4 py-2">{sellers.total_product}</div>
                                     </div>
-                                    <div class="grid grid-cols-2">
+                                    {/* <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold">Today sells</div>
-                                        <div class="px-4 py-2"> 10 </div>
-                                    </div>
+                                        <div class="px-4 py-2"> {sellers.daily_sells}</div>
+                                    </div> */}
                                     <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold">Total sales</div>
                                         <div class="px-4 py-2">{sellers.total_sales}</div>

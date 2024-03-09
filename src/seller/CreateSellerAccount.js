@@ -46,7 +46,7 @@ const CreateSellerAccountComp = () => {
         console.log("check 1")
         const resultAction = await dispatch(createSellerAccounts({ shopName, gstNumber, alternatePhone, aadharNumber, confirmAadharNumber, bankAccount, confirmBankAccount, bankIfscCode, confirmIfscCode, address1, landmark, city, state, zipcode, country}));
         const result = unwrapResult(resultAction);
-        console.log("check 2", result);
+        
         if (!result.errors) {
             Swal.fire({
                 icon: 'success',

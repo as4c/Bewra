@@ -35,8 +35,9 @@ const ChangePassword = () => {
                 { password, password2: confirmPassword },
                 { headers: { Authorization: `JWT ${localStorage.getItem('access')}` } }
             );
-            // Password changed successfully
+            
             console.log(response.data.msg);
+            
             setErrorMsg('');
         } catch (error) {
             console.error('Error changing password:', error);
