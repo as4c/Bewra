@@ -23,8 +23,8 @@ const Navbar = () => {
         window.location.reload()
         Navigate('/')
     }
-    
-    const Search = () =>{
+
+    const Search = () => {
         Navigate(`/product/search/${query}`);
     }
 
@@ -114,7 +114,7 @@ const Navbar = () => {
             }
         };
 
-    }, [toggleDropdown, ]);
+    }, [isDropdownOpen]);
 
     useEffect(() => {
         const handleDocumentClick = (e) => {
@@ -131,6 +131,8 @@ const Navbar = () => {
             document.removeEventListener('click', handleDocumentClick);
         };
     }, [isMenuOpen, isDropdownOpen]);
+
+    
     return (
         <div className='mb-10'>
             <div className='fixed top-0 left-0 w-full shadow-lg overflow-hidden z-50 '>
@@ -161,7 +163,7 @@ const Navbar = () => {
                                     onChange={(e) => setQuery(e.target.value)}
                                 />
                                 <button type="submit" className="absolute search-btn right-0 bottom-0 top-0 bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-r-md text-sm px-4 py-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-blue-800"
-                                onClick={Search}
+                                    onClick={Search}
                                 >
                                     Search
                                 </button>
@@ -258,9 +260,9 @@ const Navbar = () => {
                     <nav className="fixed right-0 sm:mt-4 md:top-14 md:mt-1 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-slate-900 border-r rounded">
                         <div className="flex items-center mb-8">
                             <a className="mr-auto text-3xl font-bold leading-none" href="/">
-                            <img src="https://res.cloudinary.com/deyj67ued/image/upload/v1709895525/Bewra/media/assets/bewra-high-resolution-logo-black-transparent_nngrys.png" className="mr-5 h-6 sm:h-9 bg-white" alt="logo" />
+                                <img src="https://res.cloudinary.com/deyj67ued/image/upload/v1709895525/Bewra/media/assets/bewra-high-resolution-logo-black-transparent_nngrys.png" className="mr-5 h-6 sm:h-9 bg-white p-2 rounded-full" alt="logo" />
                             </a>
-                            <button className="navbar-close"  onClick={toggleMenu}>
+                            <button className="navbar-close" onClick={toggleMenu}>
                                 <svg className="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                                 </svg>
@@ -340,7 +342,7 @@ const Navbar = () => {
                                 onChange={(e) => setQuery(e.target.value)}
                             />
                             <button type="submit" className="absolute search-btn right-0 bottom-0 top-0 bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-r-md text-sm px-4 py-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-blue-800"
-                            onClick={Search}
+                                onClick={Search}
                             >
                                 Search
                             </button>
