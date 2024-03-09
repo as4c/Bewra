@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import queryString from "query-string";
 import { GoogleAuth } from "../../features/actions/authActions";
 import { useDispatch } from "react-redux";
 import { unwrapResult } from "@reduxjs/toolkit";
+import Swal from "sweetalert2";
 
 const SocialAuth = () => {
-  let location = useLocation();
-
+  const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch()
+
+
   useEffect(() => {
     document.title = 'Google Authentication';
 }, []);
@@ -27,7 +29,17 @@ const SocialAuth = () => {
     const raw_res = await dispatch(GoogleAuth(location.search));
     const res = await unwrapResult(raw_res);
     if(!res.errors){
-      navigate('/');
+      Swal.fire({
+        icon: 'success',
+        title: 'Welcome Back!',
+        text: result.msg,
+    });
+    setValues({
+        ...values,
+        email: "",
+        password: "",
+    });
+    navigate(location?.state?.preUrl);
     }
   }
 
