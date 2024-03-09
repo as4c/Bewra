@@ -257,10 +257,10 @@ const Navbar = () => {
                     <div className="navbar-backdrop inset-0 bg-gray-800 opacity-25"></div>
                     <nav className="fixed right-0 sm:mt-4 md:top-14 md:mt-1 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-slate-900 border-r rounded">
                         <div className="flex items-center mb-8">
-                            <a className="mr-auto text-3xl font-bold leading-none" href="#">
-                            <img src="https://res.cloudinary.com/deyj67ued/image/upload/v1709895525/Bewra/media/assets/bewra-high-resolution-logo-black-transparent_nngrys.png" className="mr-5 h-6 sm:h-9" alt="logo" />
+                            <a className="mr-auto text-3xl font-bold leading-none" href="/">
+                            <img src="https://res.cloudinary.com/deyj67ued/image/upload/v1709895525/Bewra/media/assets/bewra-high-resolution-logo-black-transparent_nngrys.png" className="mr-5 h-6 sm:h-9 bg-white" alt="logo" />
                             </a>
-                            <button className="navbar-close">
+                            <button className="navbar-close"  onClick={toggleMenu}>
                                 <svg className="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                                 </svg>
