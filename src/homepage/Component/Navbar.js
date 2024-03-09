@@ -114,7 +114,7 @@ const Navbar = () => {
             }
         };
 
-    }, [toggleMenu, closeMenu, toggleDropdown]);
+    }, []);
 
     useEffect(() => {
         const handleDocumentClick = (e) => {
@@ -130,7 +130,7 @@ const Navbar = () => {
         return () => {
             document.removeEventListener('click', handleDocumentClick);
         };
-    }, [toggleMenu, closeMenu, toggleDropdown]);
+    }, [isMenuOpen, isDropdownOpen]);
     return (
         <div className='mb-10'>
             <div className='fixed top-0 left-0 w-full shadow-lg overflow-hidden z-50 '>
@@ -258,7 +258,7 @@ const Navbar = () => {
                     <nav className="fixed right-0 sm:mt-4 md:top-14 md:mt-1 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-slate-900 border-r rounded">
                         <div className="flex items-center mb-8">
                             <a className="mr-auto text-3xl font-bold leading-none" href="#">
-                                <img src="logo192.png" className='h-10 w-10' alt="logo" />
+                            <img src="https://res.cloudinary.com/deyj67ued/image/upload/v1709895525/Bewra/media/assets/bewra-high-resolution-logo-black-transparent_nngrys.png" className="mr-5 h-6 sm:h-9" alt="logo" />
                             </a>
                             <button className="navbar-close">
                                 <svg className="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

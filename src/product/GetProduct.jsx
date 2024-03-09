@@ -14,7 +14,6 @@ import StockNotify from './StockNotify'
 
 const GetProduct = () => {
 
-    const {product, loading, data} = useSelector((state)=>state.product);
     const { isAuthenticated } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
     const { uid } = useParams();
@@ -24,6 +23,7 @@ const GetProduct = () => {
     useEffect(()=>{
         dispatch(loadProductData({uid}));
     }, [uid]);
+    const {product, loading, data} = useSelector((state)=>state.product);
 
     useEffect(() => {
        
