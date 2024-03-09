@@ -125,7 +125,7 @@ const SellerDashboard = () => {
                                         </div>
                                         <div class="grid grid-cols-2">
                                             <div class="px-4 py-2 font-semibold">Contact No.</div>
-                                            <div class="px-4 py-2">+91 {sellers.owner.phone}</div>
+                                            <div class="px-4 py-2">+91 {user.phone}</div>
                                         </div>
                                         <div class="grid grid-cols-2">
                                             <div class="px-4 py-2 font-semibold">Alternate phone</div>
