@@ -114,7 +114,7 @@ const Navbar = () => {
             }
         };
 
-    }, [toggleDropdown]);
+    }, [isMenuOpen]);
 
     useEffect(() => {
         const handleDocumentClick = (e) => {
@@ -130,7 +130,7 @@ const Navbar = () => {
         return () => {
             document.removeEventListener('click', handleDocumentClick);
         };
-    }, [isMenuOpen]);
+    }, [isDropdownOpen]);
 
 
     return (
@@ -242,7 +242,7 @@ const Navbar = () => {
                         {/* Hamburger menu for mobile */}
                         <div className="lg:hidden mb-4">
                             <button
-                                onClick={toggleMenu}
+                                onClick={toggleDropdown}
                                 className="text-white focus:outline-none p-3 navbar-burger"
                             >
                                 <svg className="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

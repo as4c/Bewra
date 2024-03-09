@@ -35,10 +35,10 @@ const StockNotify = ({ product_id }) => {
 
   return (
 
-    <div className="flex items-center space-x-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 px-2 py-2 text-white w-full sm:w-auto">
-      <button onClick={handleNotifyMe} className="text-md">Notify Me</button>
+    <div className="mt-1 flex items-center space-x-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 px-2 py-2 text-white w-full sm:w-auto">
+      <button onClick={handleNotifyMe} className="text-md flex mx-auto">Notify Me</button>
     </div>
   );
 }
 
-export default StockNotify
+export default StockNotify;
