@@ -114,7 +114,7 @@ const Navbar = () => {
             }
         };
 
-    }, [isDropdownOpen]);
+    }, []);
 
     useEffect(() => {
         const handleDocumentClick = (e) => {
@@ -132,7 +132,7 @@ const Navbar = () => {
         };
     }, [isMenuOpen, isDropdownOpen]);
 
-    
+
     return (
         <div className='mb-10'>
             <div className='fixed top-0 left-0 w-full shadow-lg overflow-hidden z-50 '>
