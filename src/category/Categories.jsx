@@ -89,7 +89,7 @@ const Categories = () => {
             </div>
             {isOpen && (
                 <div className="origin-top-left absolute left-2 mt-2 w-4/5 rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
-                    <div className="flex grid md:grid-cols-4 gap-2 sm:grid-cols-3 gap-1 xs:grid-cols-2 gap-1 absolute bg-slate-900 text-white shadow-md mt-4" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                    <div className="flex grid md:grid-cols-4 gap-2 sm:grid-cols-3 gap-1 xs:grid-cols-2 gap-1 bg-slate-900 text-white shadow-md mt-4" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                         {data.map((cat) => (
                             <div key={cat.uid} className="py-4 px-4 cursor-pointer font-semibold hover:text-orange-400">
                                 <button onClick={() => OnClickOnCat(cat.name)}> {cat.name}</button>
