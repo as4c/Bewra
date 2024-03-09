@@ -85,7 +85,6 @@ export default function App() {
           <Route path='deliveryboy/parcel-list' element={<ParcelsList />} />
 
           <Route path="product/buy/:uid" element={<OrderSummary />} />
-          <Route path="product/search/:query" element={<SearchResult />} />
           <Route path="orders/:uid" element={<OrderDetail />} />
           <Route path="orders" element={<OrderList />} />
           <Route path="order/buy-all/" element={<OrderFromCart />} />
@@ -93,6 +92,7 @@ export default function App() {
         </Route>
 
         <Route path='product/:uid' element={<GetProduct />} />
+        <Route path="product/search/:query" element={<SearchResult />} />
         <Route path='account/settings' element={<Settings />} />
 
 

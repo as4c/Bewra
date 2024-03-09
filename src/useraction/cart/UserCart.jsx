@@ -118,7 +118,7 @@ const UserCart = () => {
                                                     Subtotal: Rs. {CalculateSubTotal(product.quantity, product.product.effective_price)}.00
                                                 </div>
                                                 <div className="flex items-center space-x-1.5 rounded-lg bg-orange-500 hover:bg-orange-600 px-5 py-2 text-white duration-100">
-                                                <Link to={`/product/buy/${product.uid}`} className="text-lg">Buy now</Link>
+                                                <Link to={`/user/product/buy/${product.uid}`} className="text-lg">Buy now</Link>
                                                 </div>
                                                 
                                             </div>
@@ -136,7 +136,7 @@ const UserCart = () => {
                             </div>
                             <div className="flex items-end justify-center p-3 mt-2">
                                 <div className="flex items-center space-x-1.5 rounded-lg bg-orange-500 hover:bg-orange-600 px-5 py-2 text-white duration-100">
-                                    <Link to={'/order/buy-all/'} className="text-lg">BUY ALL</Link>
+                                    <Link to={'/user/order/buy-all/'} className="text-lg">BUY ALL</Link>
                                 </div>
                             </div>
                         </div>
