@@ -221,7 +221,7 @@ const Navbar = () => {
                                                         <button
                                                             onClick={toggleMenu}
                                                             className="hover:text-white navbar-burger">
-                                                            <img src="logo192.png" alt="pro" className='w-8 h-8 rounded-full ring-1 color text-white focus:outline-orange-500 hover:outline' />
+                                                            <img src={`${user.profile_pic}`} alt="pro" className='w-8 h-8 rounded-full ring-1 color text-white focus:outline-orange-500 hover:outline' />
                                                         </button>
                                                     </div>
 
