@@ -38,10 +38,8 @@ export const createSellerAccounts = createAsyncThunk(
                     },
                 });
 
-                console.log("create seller res: ", response.data);
                 return response.data;
             } catch (err) {
-                console.error("Server Error:", err);
                 return rejectWithValue(err);
             }
         } else {
