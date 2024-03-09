@@ -32,13 +32,9 @@ const SocialAuth = () => {
       Swal.fire({
         icon: 'success',
         title: 'Welcome Back!',
-        text: result.msg,
+        text: "You have successfully logged In.",
     });
-    setValues({
-        ...values,
-        email: "",
-        password: "",
-    });
+    
     navigate(location?.state?.preUrl);
     }
   }
