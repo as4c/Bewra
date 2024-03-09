@@ -18,7 +18,6 @@ const ConfirmDelete = () => {
       text: 'Account delete successfully.',
     });
     navigate('/')
-    
   }
 
 

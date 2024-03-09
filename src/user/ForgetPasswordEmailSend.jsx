@@ -22,8 +22,6 @@ const ForgotPasswordForm = () => {
                 `${API}/accounts/send-reset-password-email/`,
                 { email }
             );
-
-            console.log(("response from reset password...", response))
             setSuccessMsg(response.data.msg);
             setErrorMsg('');
         } catch (error) {

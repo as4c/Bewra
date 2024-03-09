@@ -35,7 +35,7 @@ const SocialAuth = () => {
         text: "You have successfully logged In.",
     });
     
-    navigate(location?.state?.preUrl);
+    navigate('/');
     }
   }
 

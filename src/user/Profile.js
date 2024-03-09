@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import Layout from '../homepage/Layout';
 import { laodProfile } from '../features/actions/authActions';
 import { deleteAddress, loadAddress } from '../features/actions/addressAction';
-import { BaseUrl } from '../backend';
 import { formateDate, mapAddressCodeToLabel, mapGenderCodeToLabel } from '../helper';
 
 const Profile = () => {
