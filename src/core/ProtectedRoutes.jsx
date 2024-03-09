@@ -1,12 +1,13 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Navigate, Outlet, useLocation, useNavigate } from 'react-router-dom'
 
 const ProtectedRoutes = () => {
     const {isAuthenticated} = useSelector((state) => state.auth);
-    const navigate = useNavigate();
-    if(!isAuthenticated){
-        navigate('/signin')
+    const userToken = localStorage.getItem('access');
+    const location = useLocation();
+    if(!isAuthenticated || userToken === undefined){
+      return <Navigate to="/signin" state={{ preUrl: location.pathname }} />
     }
   return (
     <div>

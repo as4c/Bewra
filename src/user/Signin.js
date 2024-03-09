@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { signin } from '../features/actions/authActions';
 import Swal from 'sweetalert2';
@@ -10,6 +10,7 @@ import GoogleLoginButton from './SocialAuth/GoogleButton';
 const Signin = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const location = useLocation();
     useEffect(() => {
         document.title = 'User login';
     }, []);
@@ -45,12 +46,7 @@ const Signin = () => {
                 email: "",
                 password: "",
             });
-            if (previous !== undefined) {
-                navigate(`${previous}`);
-
-            } else {
-                navigate('/');
-            }
+            navigate(location?.state?.preUrl);
         }
         else {
             const errorFields = Object.keys(result.errors);

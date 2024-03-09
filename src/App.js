@@ -53,24 +53,23 @@ export default function App() {
         <Route path="/accounts/verify/:uid/:token" element={<VerificationComponent />} />
         <Route path='/forget-password' element={<ForgotPasswordForm />} />
         <Route path='/reset-password' element={<ResetPasswordForm />} />
-        <Route element={<ProtectedRoutes />}>
-          <Route exact path="/user/profile" element={<Profile />} />
-          <Route path="/user/change-password" element={<ChangePassword />} />
-          <Route path="/user/settings" element={<Settings />} />
-          <Route path="/user/delete-account" element={<ConfirmDelete />} />
-          <Route path="/user/update-profile" element={<UpdateAccount />} />
-          <Route path="/user/cart" element={<UserCart />} />
-          <Route path="/user/wishlist" element={<Wishlist />} />
+        <Route path='/user' element={<ProtectedRoutes />}>
+          <Route exact path="profile" element={<Profile />} />
+          <Route path="change-password" element={<ChangePassword />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="delete-account" element={<ConfirmDelete />} />
+          <Route path="update-profile" element={<UpdateAccount />} />
+          <Route path="cart" element={<UserCart />} />
+          <Route path="wishlist" element={<Wishlist />} />
           
+          <Route path="create-address" element={<AddAddress />} />
+          <Route path="update-address/:uid" element={<UpdateAddress />} />
 
-          <Route path="/user/create-address" element={<AddAddress />} />
-          <Route path="/user/update-address/:uid" element={<UpdateAddress />} />
+          <Route path='create-seller-account' element={<CreateSellerAccountComp />} />
+          <Route path='update-seller-account' element={<UpdateSellerAccount />} />
 
-          <Route path='/user/create-seller-account' element={<CreateSellerAccountComp />} />
-          <Route path='/user/update-seller-account' element={<UpdateSellerAccount />} />
-
-          <Route path='/user/seller/login' element={<SellerAccountLogin />} />
-          <Route path="/user/seller" element={<ProtectDashboard />}>
+          <Route path='seller/login' element={<SellerAccountLogin />} />
+          <Route path="seller" element={<ProtectDashboard />}>
             <Route path='dashboard' element={<SellerDashboard />} />
             <Route path="add-category" element={<AddCategory />} />
             <Route path="add-product" element={<AddProduct />} />
@@ -80,21 +79,21 @@ export default function App() {
             <Route path="order-info/:uid" element={<ProcessOrder />} />
           </Route>
 
-          <Route path='/user/create-deliveryboy-account' element={<CreateDeliveryBoy />} />
-          <Route path='/user/deliveryboy/login' element={<DeliveryBoyLoginPage />} />
-          <Route path='/user/deliveryboy/dashboard' element={<DeliveryBoyDashboard />} />
-          <Route path='/user/deliveryboy/parcel-list' element={<ParcelsList />} />
+          <Route path='create-deliveryboy-account' element={<CreateDeliveryBoy />} />
+          <Route path='deliveryboy/login' element={<DeliveryBoyLoginPage />} />
+          <Route path='deliveryboy/dashboard' element={<DeliveryBoyDashboard />} />
+          <Route path='deliveryboy/parcel-list' element={<ParcelsList />} />
 
-          <Route path="/product/buy/:uid" element={<OrderSummary />} />
-          <Route path="/product/search/:query" element={<SearchResult />} />
-          <Route path="/user/orders/:uid" element={<OrderDetail />} />
-          <Route path="/user/orders" element={<OrderList />} />
-          <Route path="/order/buy-all/" element={<OrderFromCart />} />
-          <Route path="/product/buy/select-address" element={<SelectAddress />} />
+          <Route path="product/buy/:uid" element={<OrderSummary />} />
+          <Route path="product/search/:query" element={<SearchResult />} />
+          <Route path="orders/:uid" element={<OrderDetail />} />
+          <Route path="orders" element={<OrderList />} />
+          <Route path="order/buy-all/" element={<OrderFromCart />} />
+          <Route path="product/buy/select-address" element={<SelectAddress />} />
         </Route>
 
-        <Route path='/product/:uid' element={<GetProduct />} />
-        <Route path='/account/settings' element={<Settings />} />
+        <Route path='product/:uid' element={<GetProduct />} />
+        <Route path='account/settings' element={<Settings />} />
 
 
         <Route path="*" element={<Navigate to="/error" />} />
