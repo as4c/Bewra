@@ -49,23 +49,24 @@ const Categories = () => {
 
     const handleClickOutside = (event) => {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-          setIsOpen(false);
+            setIsOpen(false);
         }
-      };
-    
-      useEffect(() => {
+    };
+
+    useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
-          document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('mousedown', handleClickOutside);
         };
-      }, []);
+    }, []);
+
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
     return (
-        <div ref={dropdownRef} className="bg-slate-700 p-3 overflow-hidden shadow-lg">
+        <div ref={dropdownRef} className="bg-slate-700 p-3 overflow-hidden shadow-lg relative">
             <div className="container mx-auto flex items-center justify-between mt-10">
                 <button
                     className="text-white font-bold text-xl cursor-pointer"
@@ -89,12 +90,14 @@ const Categories = () => {
             </div>
             {isOpen && (
                 <div className="origin-top-left absolute left-2 mt-2 w-4/5 rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
-                    <div className="flex grid grid-cols-2 gap-1 md:grid-cols-4 gap-2 lg:grid-cols-5 gap-2 bg-slate-900 text-white shadow-md mt-4" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                        {data.map((cat) => (
-                            <div key={cat.uid} className="py-4 px-4 cursor-pointer font-semibold hover:text-orange-400">
-                                <button onClick={() => OnClickOnCat(cat.name)}> {cat.name}</button>
-                            </div>
-                        ))}
+                    <div className="category-list-container max-h-60 overflow-y-auto bg-slate-900 text-white shadow-md mt-4">
+                        <div className="grid grid-cols-2 gap-1 md:grid-cols-4 gap-2 lg:grid-cols-5 gap-2">
+                            {data.map((cat) => (
+                                <div key={cat.uid} className="py-4 px-4 cursor-pointer font-semibold hover:text-orange-400 border-r">
+                                    <button onClick={() => OnClickOnCat(cat.name)}> {cat.name}</button>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             )}
