@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { timeAgo } from '../helper'
-import { BaseUrl } from '../backend'
 import WishlistButton from './Component/WishlistButton'
 import CartButton from './Component/CartButton'
 import BuyNowButton from './Component/BuyNowButton'
@@ -13,7 +12,7 @@ const ProductList = ({ data }) => {
         <div>
             {/* <!-- Product List --> */}
             <section className="py-5 bg-gray-100 ">
-                <div className="mx-auto grid max-w-6xl  grid-cols-2 gap-6 p-6 pb-2 my-auto py-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                <div className="max-w-6xl grid grid-cols-2 gap-4 p-2 my-auto py-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                     {data && data.map((product) => (
                         <article key={product.uid} className="rounded-xl bg-white p-3 pb-1 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 relative ">
                             <div className="flex flex-col h-full justify-between">
@@ -50,12 +49,16 @@ const ProductList = ({ data }) => {
                                         </div>
                                     </div>
                                 </Link>
-                                <div className="flex items-end justify-between p-2 bottom-0">
+                                <div className="bottom-0 flex flex-col items-end justify-between p-2 sm:flex-row ">
+
                                     <CartButton uid={product.uid} />
+
                                     {product.stock > 0 ?
+
                                         <BuyNowButton uid={product.uid} />
+
                                         :
-                                        <StockNotify product_id={product.uid} />                                    }
+                                        <StockNotify product_id={product.uid} />}
                                 </div>
                             </div>
                         </article>
