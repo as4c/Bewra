@@ -3,12 +3,12 @@ import { addToWishlist } from '../../features/actions/wishlistAction';
 import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import { unwrapResult } from '@reduxjs/toolkit';
+import { Navigate} from 'react-router-dom';
 
 const WishlistButton = ({uid}) => {
     const dispatch = useDispatch();
     const { isAuthenticated } = useSelector((state) => state.auth);
-
-
+    
     const AddToWishlist = (uid) => {
         if (!isAuthenticated) {
             Swal.fire({
@@ -16,6 +16,7 @@ const WishlistButton = ({uid}) => {
                 title: 'UnAuthorized!',
                 text: "Login first.",
             });
+            <Navigate to={'/signin'}/>;
         } else {
             dispatch(addToWishlist({ uid }))
                 .then((res1 => {

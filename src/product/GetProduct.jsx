@@ -10,6 +10,8 @@ import Swal from 'sweetalert2';
 import { addToCart } from '../features/actions/cartAction';
 import RelatedProduct from './RelatedProduct'
 import StockNotify from './StockNotify'
+import BuyNowButton from './Component/BuyNowButton'
+import CartButton from './Component/CartButton'
 
 
 const GetProduct = () => {
@@ -20,17 +22,17 @@ const GetProduct = () => {
     useEffect(() => {
         document.title = 'Product Detail';
     }, []);
-    useEffect(()=>{
-        dispatch(loadProductData({uid}));
+    useEffect(() => {
+        dispatch(loadProductData({ uid }));
     }, [uid]);
-    const {product, loading, data} = useSelector((state)=>state.product);
+    const { product, loading, data } = useSelector((state) => state.product);
 
     useEffect(() => {
-       
+
         dispatch(searchProduct(product.category));
-        
+
     }, [dispatch])
-    
+
 
     const AddToCart = (uid) => {
         if (!isAuthenticated) {
@@ -40,7 +42,7 @@ const GetProduct = () => {
                 text: "Login first.",
             });
         } else {
-            dispatch(addToCart({uid}))
+            dispatch(addToCart({ uid }))
                 .then((res1 => {
                     const res = unwrapResult(res1);
                     if (!res.error) {
@@ -62,9 +64,9 @@ const GetProduct = () => {
         }
     }
 
-    if(product.length === 0 || loading){
+    if (product.length === 0 || loading) {
         return (
-            <Loading/>
+            <Loading />
         )
     }
 
@@ -85,7 +87,7 @@ const GetProduct = () => {
                         <h3 className="uppercase text-black text-2xl font-medium">{product.product_name}
                         </h3>
                         <div className='flex justify-between'>
-                            
+
                             <div className="start inline">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
                                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -96,7 +98,7 @@ const GetProduct = () => {
                         </div>
                         <div className='flex justify-between'>
                             <div className="start">
-                               
+
                                 <del className="text-xl font-semibold mb-1 text-red-700 line-through">Rs. {product.actual_price}</del>
                                 <h3 className="text-2xl font-semibold mb-1">Rs. {product.effective_price}</h3>
                                 <p className="font-semibold text-base text-gray-70">Discount {product.discount} %</p>
@@ -110,33 +112,23 @@ const GetProduct = () => {
                         </div>
 
                         <div dangerouslySetInnerHTML={{ __html: product.product_description }} />
-                        <div className="flex flex-col justify-center items-end sm:flex-row sm:justify-between sm:items-center p-2 mt-2 ">
-                            {product.stock > 0 ? 
-                            <div className="flex items-center space-x-1.5 rounded-lg bg-orange-500 hover:bg-orange-600 px-5 py-2 text-white duration-100 my-2 ">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="h-4 w-4">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                                </svg>
+                        <div className="flex flex-col items-end justify-between p-2 sm:flex-row ">
 
-                                <Link to={`/user/product/buy/${product.uid}`} className="text-md px-1 py-1 sm:w-full">Buy now</Link>
-                            </div>
-                            : 
-                            <StockNotify product_id = {product.uid} />
+                            <CartButton uid={product.uid} />
 
-                            }
-                            <div className="flex items-center space-x-1.5 rounded-lg bg-indigo-500 px-5 md:px-2 py-2 text-white duration-100 hover:bg-blue-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="h-4 w-4">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                                </svg>
+                            {product.stock > 0 ?
 
-                                <button className="text-lg" onClick={() => AddToCart({uid : product.uid})}>Add To Cart</button>
-                            </div>
+                                <BuyNowButton uid={product.uid} />
 
+                                :
+                                <StockNotify product_id={product.uid} />}
                         </div>
+
                     </div>
                 </div>
 
             </main>
-            <RelatedProduct data = {data} />
+            <RelatedProduct data={data} />
         </Layout>
     )
 }
