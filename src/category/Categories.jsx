@@ -75,7 +75,25 @@ const Categories = () => {
                 >
                     Categories
                 </button>
-                <ul className="flex flex-shrink-0 inline-block">
+                <ul className="flex flex-shrink-0 inline-block font-semibold">
+                    <li className="text-nowrap">
+                        <Link
+                            className="inline-block text-white hover:underline cursor-pointer  hover:text-orange-400 mx-2 text-semibold"
+                            to={'/'}
+                            // onClick={() => OnClickOnCat(category.name)}
+                        >
+                            Trending
+                        </Link>
+                    </li>
+                    <li className="text-nowrap">
+                        <Link
+                            className="inline-block text-white hover:underline cursor-pointer  hover:text-orange-400 mx-2 text-semibold"
+                            to={'/'}
+                            // onClick={() => OnClickOnCat(category.name)}
+                        >
+                            Recently Added
+                        </Link>
+                    </li>
                     {categoriesToDisplay.map((category) => (
                         <li key={category.uid} className="text-nowrap">
                             <a

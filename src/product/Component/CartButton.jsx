@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import { unwrapResult } from '@reduxjs/toolkit';
 import { addToCart } from '../../features/actions/cartAction';
+import { useNavigate } from 'react-router-dom';
 
 const CartButton = ({ uid }) => {
     const dispatch = useDispatch();
     const { isAuthenticated } = useSelector((state) => state.auth);
-
+    const navigate = useNavigate();
     const AddToCart = (uid) => {
         if (!isAuthenticated) {
             Swal.fire({
@@ -15,6 +16,7 @@ const CartButton = ({ uid }) => {
                 title: 'UnAuthorized!',
                 text: "Login first.",
             });
+            navigate('/signin')
         } else {
             dispatch(addToCart({ uid }))
                 .then((res1 => {
