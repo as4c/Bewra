@@ -37,7 +37,7 @@ const RelatedProduct = ({ data }) => {
                                         </div>
                                         <div className='flex justify-between'>
                                             <p className="text-lg font-bold text-blue-500 text-start">₹ {product.effective_price}</p>
-                                            <p className="mt-1 text-sm text-slate-400 text-end">added {timeAgo(product.created_at)}</p>
+        
                                         </div>
                                     </div>
                                 </div>

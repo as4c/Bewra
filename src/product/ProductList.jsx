@@ -44,7 +44,7 @@ const ProductList = ({ data }) => {
                                         </div>
                                     </div>
                                 </Link>
-                                <div className="bottom-0 flex flex-col items-end justify-between p-2 sm:flex-row ">
+                                <div className="flex flex-col bottom-0 items-end justify-between p-2 sm:flex-row ">
 
                                     <CartButton uid={product.uid} />
 
