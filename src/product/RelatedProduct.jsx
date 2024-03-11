@@ -1,17 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { timeAgo } from '../helper'
 import WishlistButton from './Component/WishlistButton'
 
 const RelatedProduct = ({ data }) => {
 
     return (
-        <div className='container ml-2'>
+        <div className='container mx-auto'>
             <div className="pt-10 bg-white pb-3 text-center">
                 <h1 className="mx-3 text-3xl font-bold text-gray-600 uppercase">Related Products</h1>
             </div>
             <div className='bg-white py-5 overflow-x-auto flex'>
-                <div className="flex mx-auto sm:mx-2">
+                <div className="flex mx-auto justify-between sm:mx-2">
                     {data && data.map((product, index) => (
                         <div key={index} className="rounded-xl bg-white p-3 pb-1 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 relative mx-3">
                             <Link to={`/product/${product.uid}`} className="flex flex-col h-70">

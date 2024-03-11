@@ -63,6 +63,35 @@ const GetProduct = () => {
                 }))
         }
     }
+    const [showFullDescription, setShowFullDescription] = useState(false);
+
+    const toggleDescription = () => {
+        setShowFullDescription(!showFullDescription);
+    };
+
+    const renderDescription = () => {
+        if (!showFullDescription) {
+            const shortDescription = product.product_description.split(' ').slice(0, 50).join(' ');
+
+            return (
+                <>
+                    <p dangerouslySetInnerHTML={{ __html: `${shortDescription}...` }} />
+                    <button onClick={toggleDescription} className="text-blue-500 font-semibold cursor-pointer hover:underline">
+                        See more...
+                    </button>
+                </>
+            );
+        } else {
+            return (
+                <>
+                    <div dangerouslySetInnerHTML={{ __html: product.product_description }} />
+                    <button onClick={toggleDescription} className="text-blue-500 font-semibold cursor-pointer hover:underline">
+                        See Less
+                    </button>
+                </>
+            );
+        }
+    };
 
     if (product.length === 0 || loading) {
         return (
@@ -110,8 +139,10 @@ const GetProduct = () => {
                                 <p>category : {product.category}</p>
                             </div>
                         </div>
-
-                        <div dangerouslySetInnerHTML={{ __html: product.product_description }} />
+                        <div className='text-gray-500 mx-5 md:mt-3 pt-4'>
+                            {renderDescription()}
+                        </div>
+                        {/* <div dangerouslySetInnerHTML={{ __html: product.product_description }} /> */}
                         <div className="flex flex-col items-end justify-between p-2 sm:flex-row ">
 
                             <CartButton uid={product.uid} />

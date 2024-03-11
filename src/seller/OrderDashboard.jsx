@@ -41,7 +41,7 @@ const OrderDashboard = () => {
         <Layout>
             <div className="bg-white">
                 <div className="pb-3 mb-5">
-                    <h1 className="text-center align-center text-3xl font-bold text-gray-800">Orders</h1>
+                    <h1 className="text-center text-3xl font-bold text-gray-800">Orders</h1>
                 </div>
                 <hr />
                 <FilterPage  setType= {setType} setValues={setValues}/>

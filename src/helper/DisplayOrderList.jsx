@@ -61,11 +61,13 @@ const DisplayOrderList = ({ data }) => {
                                             <h5 className="text-xl font-semibold mb-1">Amount Rs. {order.order.total_effective_amount}</h5>
                                             <p>Order ID : {order.order.uid} </p>
                                             <p>Order Status : {mapOrderStatusToLabel(order.order.order_status)}</p>
-                                            <p>Payment mode : {mapPaymentCodeToLabel(order.order.payment_mode)}</p>
-                                            <p>Payment status : {mapPaymentStatusToLabel(order.order.payment_status)}</p>
-                                            <p>Order Type : {mapOderType(order.order.order_type)}</p>
-                                            <p>Order time : {order.order.created_at}</p>
-                                            <p>Delivery time : {mapDeliveryTime(order.order.expected_delivery_time)}</p>
+                                            <div className='hidden:md block'>
+                                                <p>Payment mode : {mapPaymentCodeToLabel(order.order.payment_mode)}</p>
+                                                <p>Payment status : {mapPaymentStatusToLabel(order.order.payment_status)}</p>
+                                                <p>Order Type : {mapOderType(order.order.order_type)}</p>
+                                                <p>Order time : {order.order.created_at}</p>
+                                                <p>Delivery time : {mapDeliveryTime(order.order.expected_delivery_time)}</p>
+                                            </div>
                                         </div>
 
                                     </div>

@@ -114,7 +114,7 @@ const Navbar = () => {
             }
         };
 
-    }, [isMenuOpen]);
+    }, []);
 
     useEffect(() => {
         const handleDocumentClick = (e) => {
@@ -129,7 +129,7 @@ const Navbar = () => {
         return () => {
             document.removeEventListener('click', handleDocumentClick);
         };
-    }, [isDropdownOpen]);
+    }, []);
 
 
     return (
@@ -217,16 +217,13 @@ const Navbar = () => {
                                         :
                                         (<>
                                             <li className='hidden lg:inline'>
-                                                <div className=''>
-                                                    <div>
-                                                        <button
-                                                            onClick={toggleMenu}
-                                                            className="hover:text-white navbar-burger">
-                                                            <img src={`${user.profile_pic}`} alt="pro" className='block w-8 h-8 rounded-full ring-1 color text-white focus:outline-orange-500 hover:outline' />
-                                                        </button>
-                                                    </div>
+                                                <div>
+                                                    <Link
+                                                        to={'/user/profile'}
+                                                        className="hover:text-white">
+                                                        <img src={`${user.profile_pic}`} alt="pro" className='block w-8 h-8 rounded-full ring-1 color text-white focus:outline-orange-500 hover:outline' />
+                                                    </Link>
                                                 </div>
-                                                
                                             </li>
                                             <button type='button' onClick={Signout} className="hidden lg:inline p-1 mb-4 leading-loose text-center  text-white  bg-orange-500 text-sm hover:bg-orange-700  rounded-2xl px-4">
                                                 Sign Out
