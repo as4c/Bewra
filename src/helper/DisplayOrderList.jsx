@@ -35,8 +35,7 @@ const DisplayOrderList = ({ data }) => {
                     <div className="grid grid-cols-1 md:grid grid-cols-3">
                         <div className='flex flex-col justify-between my-3'>
                             <Link to={`/user/seller/order-info/${order.order.uid}`} className='grid grid-cols-2' >
-                                <div className="flex flex-row mx-auto">
-
+                                <div className="flex flex-row mx-auto ">
                                     <img className='w-40 h-auto block mb-3' src={`${order.product?.image}`} alt='product image' />
                                     <div className="start inline">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
@@ -61,7 +60,7 @@ const DisplayOrderList = ({ data }) => {
                                             <h5 className="text-xl font-semibold mb-1">Amount Rs. {order.order.total_effective_amount}</h5>
                                             <p>Order ID : {order.order.uid} </p>
                                             <p>Order Status : {mapOrderStatusToLabel(order.order.order_status)}</p>
-                                            <div className='hidden:md block'>
+                                            <div className='hidden md:block'>
                                                 <p>Payment mode : {mapPaymentCodeToLabel(order.order.payment_mode)}</p>
                                                 <p>Payment status : {mapPaymentStatusToLabel(order.order.payment_status)}</p>
                                                 <p>Order Type : {mapOderType(order.order.order_type)}</p>
