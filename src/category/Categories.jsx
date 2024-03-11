@@ -20,18 +20,18 @@ const Categories = () => {
     useEffect(() => {
         const handleResize = () => {
             const screenWidth = window.innerWidth;
-            let numCategories = 10; // Default for lg screens
+            let numCategories = 8; // Default for lg screens
 
             if (screenWidth < 1024) {
-                numCategories = 8; // md screens
+                numCategories = 5; // md screens
             }
 
             if (screenWidth < 768) {
-                numCategories = 5; // sm screens
+                numCategories = 3; // sm screens
             }
 
             if (screenWidth < 576) {
-                numCategories = 4; // xs screens
+                numCategories = 0; // xs screens
             }
 
             setCategoriesToDisplay(data.slice(0, numCategories));
@@ -67,15 +67,15 @@ const Categories = () => {
     };
     return (
         <div ref={dropdownRef} className="bg-slate-700 p-3 overflow-hidden shadow-lg">
-            <div className="container mx-auto flex items-center justify-between mt-10">
+            <div className="container mx-auto flex items-center justify-between mt-10 md:mt-3">
                 <button
-                    className="text-white font-bold text-xl cursor-pointer"
+                    className="text-white font-bold text-md md:text-xl cursor-pointer"
                     id="dropdown-button"
                     onClick={toggleDropdown}
                 >
                     Categories
                 </button>
-                <ul className="flex flex-shrink-0 inline-block font-semibold">
+                <ul className="flex flex-shrink-0 inline-block font-semibold pt-1">
                     <li className="text-nowrap">
                         <Link
                             className="inline-block text-white hover:underline cursor-pointer  hover:text-orange-400 mx-2 text-semibold"
@@ -104,6 +104,13 @@ const Categories = () => {
                             </a>
                         </li>
                     ))}
+                    <button
+                    className="text-white font-bold text-md md:text-xl cursor-pointer"
+                    id="dropdown-button"
+                    onClick={toggleDropdown}
+                >
+                    More...
+                </button>
                 </ul>
             </div>
             {isOpen && (

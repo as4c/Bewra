@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { UpdateOrderStatus, getOrders } from '../features/actions/sellerActions';
+import { getOrders } from '../features/actions/sellerActions';
 import Layout from '../homepage/Layout';
-import { Watch } from 'react-loader-spinner';
 import { filterOrder } from '../features/actions/orderActions';
 import DisplayOrderList from '../helper/DisplayOrderList';
 import FilterPage from '../helper/FilterPage';
+import Loading from '../helper/Loading';
 
 const OrderDashboard = () => {
     const dispatch = useDispatch();
     const { loading, orders } = useSelector((state) => state.seller);
-    const { delivery_boy_loading } = useSelector((state) => state.deliveryBoy);
+    // const { delivery_boy_loading } = useSelector((state) => state.deliveryBoy);
     const [type, setType] = useState('')
     const [value, setValues] = useState('')
     
@@ -30,20 +30,9 @@ const OrderDashboard = () => {
 
 
 
-    if (!orders || loading || delivery_boy_loading) {
+    if (!orders || loading) {
         return (
-            <div className="flex items-center justify-center h-screen">
-                <Watch
-                    visible={true}
-                    height="80"
-                    width="80"
-                    radius="48"
-                    color="#4fa94d"
-                    ariaLabel="watch-loading"
-                    wrapperStyle={{}}
-                    wrapperClass=""
-                />
-            </div>
+            <Loading />
         );
     }
     
